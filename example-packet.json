@@ -1,0 +1,20 @@
+{
+  "data":[{
+    "pkt":235,"ts":1468518524,"raw":17460,"value":53.6
+  },{
+    "pkt":236,"ts":1468518534,"raw":17440,"value":53.4
+  }],
+  "sn":"0007BB0E",
+  "site":"Senseware Demo",
+  "location":"Gateway",
+  "mod":506638,
+  "pos":43,
+  "sid":17,
+  "type":"Temperature & Humidity",
+  "cid":23256,
+  "name":"Humidity",
+  "transform":"",
+  "ts":1468518538,
+  "unit":"%",
+  "subscription_id":"23256-16"
+}
