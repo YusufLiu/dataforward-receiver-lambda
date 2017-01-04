@@ -1,7 +1,7 @@
-# Receiving Senseware Datastreams
+# Receiving Senseware Dataforwards
 
-Welcome! This repository contains various code examples of how to receive Senseware Datastreams in AWS via AWS Lambda. 
+Welcome! This repository contains various code examples of how to receive Senseware Dataforwards in AWS via AWS Lambda. 
 
 Currently the following code examples are available:
 
- - Receiving Senseware Datastreams in AWS *DynamoDB* with *Python*
+ - Receiving Senseware Dataforwards in AWS *DynamoDB* with *Python*
