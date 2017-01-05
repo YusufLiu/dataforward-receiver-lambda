@@ -26,20 +26,22 @@ def lambda_handler(event, context):
         packet = event
 
     for record in packet['data']:
-        # DynamoDb wants decimals, not floats
-        record['value'] = Decimal(record['value'])
-        record['raw'] = Decimal(record['raw'])
+        for key in ['value', 'raw']:
+            if record[key] != "" and record[key] != None:
+                # DynamoDb wants decimals, not floats
+                record[key] = Decimal(record[key])
+            else:
+                del record[key]
+
+        for key in ['pkt', 'ts']:
+            if record[key] == "" or record[key] == None:
+                del record[key]
 
         # Add the streams meta data to every record (optional)
-        record['sn'] = packet['sn']
-        record['site'] = packet['site']
-        record['location'] = packet['location']
-        record['mod'] = packet['mod']
-        record['sid'] = packet['sid']
-        record['type'] = packet['type']
-        record['cid'] = packet['cid']
-        record['name'] = packet['name']
-        record['unit'] = packet['unit']
+        for key in ['sn', 'site', 'location', 'mod', 'sid', 'type', 'cid', 'name', 'unit']:
+            if packet[key] != "" and packet[key] != None:
+                # DynamoDb wants decimals, not floats
+                record[key] = packet[key]
 
         # Give this record an ID
         record['partition'] = str(uuid.uuid4())
