@@ -17,9 +17,8 @@ DYNAMODB_CONTEXT.traps[Rounded] = 0
 def lambda_handler(event, context):
     dynamo = boto3.resource('dynamodb').Table('senseware')
 
-    # When testing lambda the packet is the request body is the event
-    # but when testing through the Api Gateway it is wrapped in an additional
-    # request dictionary
+    # When testing thorugh the lambda UI the packet is the event but when testing through the Api Gateway the packet
+    # is wrapped in an additional request metadata dictionary
     try:
         packet = json.loads(event['body'])
     except KeyError:
